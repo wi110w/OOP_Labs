@@ -26,10 +26,10 @@ namespace Lab_2
             Console.WriteLine();
             while(true)
             {
-                if (phoenix.Age == 70)
+                if (phoenix.Old)
                 {
                     Console.WriteLine("Getting older... now I'm " + phoenix.Age + " years old.");
-                    phoenix = phoenix.Ressurect();
+                    phoenix = phoenix.Resurrect();
                     phoenix.Print();
                     break;
                 }

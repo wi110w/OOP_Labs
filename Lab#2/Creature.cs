@@ -143,7 +143,12 @@ namespace Lab_2
             return ++age;
         }
 
-        public Phoenix Ressurect()
+        public bool Old
+        {
+            get { return age == 70; }
+        }
+
+        public Phoenix Resurrect()
         {
             Console.WriteLine("I'm dying...but will be back in...");
             for (int i = this.Health; i > 0; i--)
