@@ -1,51 +1,64 @@
 ﻿namespace Lab_2
 {
     using System;
+    using System.Collections;
     
     public class Program
     {
         public static void Main(string[] args)
         {
-            Unicorn unicorn = new Unicorn("Saint", 100, 60);
+            Creature unicorn = new Unicorn("Saint", 100, 60);
             unicorn.Print();
             Console.WriteLine();
-            Dragon dragon = new Dragon("Fire", 200, 50);
+            Creature dragon = new Dragon("Fire", 200, 50);
+            Console.WriteLine();
             dragon.Print();
             Console.WriteLine();
             Dragon special = new Dragon("Morroh", 200, 80, "black dragon", "Rise!");
             special.Print();
             Console.WriteLine();
-            special.Say();
-            Console.WriteLine();
-            Manticore manticore = new Manticore();
+            Creature manticore = new Manticore();
             manticore.Print();
             Console.WriteLine();
-            manticore.Say();
-            Console.WriteLine();
-            Phoenix phoenix = new Phoenix("Rare", 100, 60);
+            Creature phoenix = new Phoenix("Taurus", 100, 60);
             phoenix.Print();
             Console.WriteLine();
-            phoenix.Say();
+            Phoenix derek = new Phoenix("Derek", 120, 70);
+            derek.Print();
             Console.WriteLine();
             while (true)
             {
-                if (phoenix.Old)
+                if (derek.Old)
                 {
-                    Console.WriteLine("Getting older... now I'm " + phoenix.Age + " years old.");
-                    phoenix = phoenix.Resurrect();
-                    phoenix.Print();
+                    Console.WriteLine(derek.Name + ": " + "Getting older... now I'm " + derek.Age + " years old.");
+                    derek = derek.Resurrect();
+                    derek.Print();
                     break;
                 }
 
-                phoenix.GetOlder();
+                derek.GetOlder();
             }
 
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine(special.Name + ": ");
             Dragon.ShowFace();
             Console.WriteLine();
             Console.WriteLine();
             special.Fire();
+            Console.WriteLine();
+            Console.WriteLine();
+            ArrayList animals = new ArrayList();
+            animals.Add(unicorn);
+            animals.Add(dragon);
+            animals.Add(manticore);
+            animals.Add(phoenix);
+            foreach (Creature c in animals)
+            {
+                Console.WriteLine();
+                Console.Write(c.Name + ": ");
+                c.Say();
+            }
+
             Console.ReadKey();
         }
     }
