@@ -1,26 +1,13 @@
-﻿using System;
-
-namespace Lab_2
+﻿namespace Lab_2
 {
-    class Creature
+    using System;
+
+    public class Creature
     {
-        private int health;
-        private int mana;
-        private string name;
         private static string kind;
-        protected Creature(string name, int health, int mana) 
-        {
-            this.Health = health;
-            this.Mana = mana;
-            this.Name = name;
-            Console.Write("Creature -> ");
-
-        }
-
-        protected Creature()
-        {
-            Console.Write("Creature -> ");
-        }
+        private uint health;
+        private uint mana;
+        private string name;
 
         static Creature()
         {
@@ -28,27 +15,40 @@ namespace Lab_2
             kind = "mythological animal";
         }
 
-        public static string GetClass()
+        protected Creature(string name, uint health, uint mana)
         {
-            return kind;
+            this.Health = health;
+            this.Mana = mana;
+            this.Name = name;
+            Console.Write("Creature -> ");
         }
 
-        public int Health
+        protected Creature()
         {
-            set { if(value >= 0) health = value; }
-            get { return health; }
+            Console.Write("Creature -> ");
         }
 
-        public int Mana
+        public uint Health
         {
-            set { if (value >= 0) mana = value; }
-            get { return mana; }
+            get { return this.health; }
+            set { this.health = value; }
+        }
+
+        public uint Mana
+        {
+            get { return this.mana; }
+            set { this.mana = value; }
         }
 
         public string Name
         {
-            set { name = value; }
-            get { return name; }
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public static string GetClass()
+        {
+            return kind;
         }
 
         public virtual void Print()
@@ -60,126 +60,8 @@ namespace Lab_2
             Console.WriteLine("Class: {0}", kind);
         }
 
-        public virtual void Say() { }
-    }
-
-    class Unicorn: Creature
-    {
-
-        public Unicorn(string name, int health, int mana)
-            : base(name, health, mana)
+        public virtual void Say()
         {
-            Console.Write("Unicorn");
-        }
-
-        public Unicorn()
-        {
-            Console.Write("Unicorn");
-            this.Health = 100;
-            this.Mana = 60;
-            this.Name = "Unicorn";
-        }
-        public override void Print()
-        {
-            
-            base.Print();
-        }
-
-        public override void Say()
-        {
-            Console.WriteLine("I'm an Unicorn!");
-        } 
-    }
-
-    class Pegasus: Creature
-    {
-
-        public Pegasus(string name, int health, int mana)
-            : base(name, health, mana)
-        {
-            Console.Write("Pegasus");
-        }
-
-         public Pegasus()
-        {
-            Console.Write("Pegasus");
-            this.Health = 120;
-            this.Mana = 40;
-            this.Name = "Pegasus";
-        }
-
-        public override void Print()
-        {
-            base.Print();
-        }
-
-        public override void Say()
-        {
-            Console.WriteLine("I'm a Pegasus!");
         }
     }
-
-    class Phoenix: Creature
-    {
-        private int age;
-        public Phoenix(string name, int health, int mana)
-            : base(name, health, mana)
-        {
-            Console.Write("Phoenix");
-            age = 10;
-        }
-
-        public int Age
-        {
-            set { age = value; }
-            get { return age; }
-        }
-
-        public int GetOlder()
-        {
-            return ++age;
-        }
-
-        public bool Old
-        {
-            get { return age == 70; }
-        }
-
-        public Phoenix Resurrect()
-        {
-            Console.WriteLine("I'm dying...but will be back in...");
-            for (int i = this.Health; i > 0; i--)
-            {
-                if (i == 60)
-                    Console.Write("3...");
-                if(i == 30)
-                    Console.Write("2...");
-                if (i == 10)
-                    Console.WriteLine("1...");
-            }
-            Console.WriteLine("Happy birthday!");
-            return new Phoenix();
-        }
-
-         public Phoenix()
-        {
-            Console.Write("Phoenix");
-            this.Health = 90;
-            this.Mana = 30;
-            this.Name = "Phoenix";
-            this.Age = 0;
-        }
-
-        public override void Print()
-        {
-            base.Print();
-            Console.WriteLine("Age: {0}", this.Age);
-        }
-
-        public override void Say()
-        {
-            Console.WriteLine("I'm a Phoenix!");
-        }
-    }
-
 }

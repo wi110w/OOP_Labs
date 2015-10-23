@@ -1,10 +1,10 @@
-﻿using System;
-
-namespace Lab_2
+﻿namespace Lab_2
 {
-    class Program
+    using System;
+    
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Unicorn unicorn = new Unicorn("Saint", 100, 60);
             unicorn.Print();
@@ -15,12 +15,19 @@ namespace Lab_2
             Dragon special = new Dragon("Morroh", 200, 80, "black dragon", "Rise!");
             special.Print();
             Console.WriteLine();
+            special.Say();
+            Console.WriteLine();
+            Manticore manticore = new Manticore();
+            manticore.Print();
+            Console.WriteLine();
+            manticore.Say();
+            Console.WriteLine();
             Phoenix phoenix = new Phoenix("Rare", 100, 60);
             phoenix.Print();
             Console.WriteLine();
             phoenix.Say();
             Console.WriteLine();
-            while(true)
+            while (true)
             {
                 if (phoenix.Old)
                 {
@@ -29,9 +36,16 @@ namespace Lab_2
                     phoenix.Print();
                     break;
                 }
+
                 phoenix.GetOlder();
             }
-            
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Dragon.ShowFace();
+            Console.WriteLine();
+            Console.WriteLine();
+            special.Fire();
             Console.ReadKey();
         }
     }
