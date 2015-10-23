@@ -20,9 +20,6 @@ namespace Lab_2
         protected Creature()
         {
             Console.Write("Creature -> ");
-            health = 100;
-            mana = 50;
-            name = "Creature";
         }
 
         static Creature()

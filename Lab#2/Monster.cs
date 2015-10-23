@@ -14,10 +14,6 @@ namespace Lab_2
         protected Monster()
         {
             Console.Write("Monster -> ");
-            this.Health = 150;
-            this.Mana = 70;
-            this.Name = "Monster";
-            this.Spell = "Sheeesh!";
         }
 
         public string Spell
@@ -123,9 +119,13 @@ namespace Lab_2
             this.Spell = "Poison!";
         }
 
-        public Manticore() : base()
+        public Manticore()
         {
             Console.Write("Manticore");
+            this.Health = 150;
+            this.Mana = 70;
+            this.Name = "Manticore";
+            this.Spell = "Poison!";
         }
 
         public override void Print()
