@@ -59,6 +59,16 @@
                 c.Say();
             }
 
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("I summon you, Satan!");
+            Monster satan = Demon.Summon("Satan!");
+            satan.Print();
+            Console.WriteLine();
+            satan.Say();
+            Console.WriteLine();
+            Console.WriteLine("I summon you, Abadon!");
+            Monster abadon = Demon.Summon("Abadon!");
             Console.ReadKey();
         }
     }
