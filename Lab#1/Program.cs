@@ -1,8 +1,8 @@
-﻿using System;
-using System.IO;
-
-namespace Lab_1
+﻿namespace Lab_1
 {
+    using System;
+    using System.IO;
+    
     class Program
     {
         static void Main(string[] args)
@@ -12,20 +12,20 @@ namespace Lab_1
             logger.Log("Application started", string.Empty, "Done");
             try
             {
-                StreamReader vectorReader = reader.OpenFile(@"vectors.txt");
-                StreamReader matrixReader = reader.OpenFile(@"matrices.txt");
+                StreamReader vectorReader = null;
+                StreamReader matrixReader = null;
 
-                Vector X = reader.ReadVector(vectorReader);
+                Vector X = reader.ReadVector(vectorReader, @"vectors.txt");
                 logger.Log("Loaded X", string.Format("{0}", X), "Done");
-                Vector Y = reader.ReadVector(vectorReader);
+                Vector Y = reader.ReadVector(vectorReader, @"vectors.txt");
                 logger.Log("Loaded Y", string.Format("{0}", Y), "Done");
-                Matrix A = reader.ReadMatrix(matrixReader);
+                Matrix A = reader.ReadMatrix(matrixReader, @"matrices.txt");
                 logger.Log("Loaded A", string.Format("\n{0}", A), "Done");
-                Matrix B = reader.ReadMatrix(matrixReader);
+                Matrix B = reader.ReadMatrix(matrixReader, @"matrices.txt");
                 logger.Log("Loaded B", string.Format("\n{0}", B), "Done");
-                Matrix C = reader.ReadMatrix(matrixReader);
+                Matrix C = reader.ReadMatrix(matrixReader, @"matrices.txt");
                 logger.Log("Loaded C", string.Format("\n{0}", C), "Done");
-                Matrix D = reader.ReadMatrix(matrixReader);
+                Matrix D = reader.ReadMatrix(matrixReader, @"matrices.txt");
                 logger.Log("Loaded D", string.Format("\n{0}", D), "Done");
                 //(A + C + 2D)^t * X + BY
                 Matrix total = A + C;
@@ -42,9 +42,9 @@ namespace Lab_1
                 result += B * Y;
                 logger.Log("Addition of result and BY", string.Format("\n{0}\n   + \n(\n{1}   * \n{2}) = {3}", tempVector, B, Y, result), "Done");
                 tempVector += B * Y;
-                logger.Log("Euclid norm of result", string.Format("||{0}|| = {1}", tempVector, result.EucledianNorm), "Done");
-                logger.Log("Manhattan norm of result", string.Format("||{0}|| = {1}", tempVector, result.ManhattanNorm), "Done");
-                logger.Log("Maximum norm of result", string.Format("||{0}|| = {1}", tempVector, result.MaxNorm), "Done");
+                logger.Log("Euclid norm of result", string.Format("||{0}|| = {1}", tempVector, result.GetEucledianNorm()), "Done");
+                logger.Log("Manhattan norm of result", string.Format("||{0}|| = {1}", tempVector, result.GetManhattanNorm()), "Done");
+                logger.Log("Maximum norm of result", string.Format("||{0}|| = {1}", tempVector, result.GetMaxNorm()), "Done");
 
             }
             catch (Exception e)
@@ -53,33 +53,33 @@ namespace Lab_1
             }
             try
             {
-                StreamReader mFailReader = reader.OpenFile(@"mfails.txt");
+                StreamReader mFailReader = null;
 
-                Matrix E = reader.ReadMatrix(mFailReader);
+                Matrix E = reader.ReadMatrix(mFailReader, @"mfails.txt");
                 logger.Log("Loaded E", string.Format("\n{0}", E), "Done");
-                Matrix F = reader.ReadMatrix(mFailReader);
+                Matrix F = reader.ReadMatrix(mFailReader, @"mfails.txt");
                 logger.Log("Loaded F", string.Format("\n{0}", F), "Done");
 
                 Matrix alert = E + F;
                 logger.Log("Addition of E and F", string.Format("\n{0}   + \n{1}   = \n{2}", E, F, alert), "Done");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 logger.Log("Fail to make an action", e.Message, "FAIL");
             }
             try
             {
-                StreamReader vFailReader = reader.OpenFile(@"vfails.txt");
-                
-                Vector W = reader.ReadVector(vFailReader);
+                StreamReader vFailReader = null;
+
+                Vector W = reader.ReadVector(vFailReader, @"vfails.txt");
                 logger.Log("Loaded W", string.Format("{0}", W), "Done");
-                Vector Z = reader.ReadVector(vFailReader);
+                Vector Z = reader.ReadVector(vFailReader, @"vfails.txt");
                 logger.Log("Loaded Z", string.Format("{0}", Z), "Done");
 
                 Vector error = W + Z;
                 logger.Log("Addition of W and Z", string.Format("{0} + {1} = {2}", W, Z, error), "Done");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 logger.Log("Fail to make an action", e.Message, "FAIL");
             }

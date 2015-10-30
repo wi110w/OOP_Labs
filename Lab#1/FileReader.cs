@@ -1,18 +1,21 @@
-﻿using System;
-using System.IO;
-namespace Lab_1
+﻿namespace Lab_1
 {
+    using System;
+    using System.IO;
+    
     class FileReader
     {
-        public StreamReader OpenFile(string filename)
+        private StreamReader OpenFile(string filename)   //encapsulate streamReader
         {
             return new StreamReader(filename);
         }
-        public Vector ReadVector(StreamReader reader)
+
+        public Vector ReadVector(StreamReader vectorReader, string filename)
         {
-            string sizeStr = reader.ReadLine();
+             vectorReader = this.OpenFile(filename);
+            string sizeStr = vectorReader.ReadLine();
             int size = int.Parse(sizeStr);
-            string coord = reader.ReadLine();
+            string coord = vectorReader.ReadLine();
             string[] coords = coord.Split();
 
             Vector X = new Vector(size);
@@ -21,11 +24,13 @@ namespace Lab_1
                 float comp = float.Parse(coords[i]);
                 X[i] = comp;
             }
+
             return X;
         }
 
-        public Matrix ReadMatrix(StreamReader matrixReader)
+        public Matrix ReadMatrix(StreamReader matrixReader, string filename)
         {
+            matrixReader = this.OpenFile(filename);
             string sizeStr = matrixReader.ReadLine();
             int size = int.Parse(sizeStr);
             float[,] m1 = new float[size, size];
@@ -38,9 +43,10 @@ namespace Lab_1
                     m1[i, j] = float.Parse(coords[j]);
                 }
             }
+
             Matrix M = new Matrix(m1);
+
             return M;
         }
-
     }
 }
