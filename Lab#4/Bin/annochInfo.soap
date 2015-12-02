@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:Dragon id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Lab_4/Lab_4%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_x003C_Type_x003E_k__BackingField id="ref-3">red dragon-warrior</_x003C_Type_x003E_k__BackingField>
+<_x003C_Spell_x003E_k__BackingField id="ref-4">BUUURN!</_x003C_Spell_x003E_k__BackingField>
+<Creature_x002B__x003C_Health_x003E_k__BackingField>180</Creature_x002B__x003C_Health_x003E_k__BackingField>
+<Creature_x002B__x003C_Mana_x003E_k__BackingField>60</Creature_x002B__x003C_Mana_x003E_k__BackingField>
+<Creature_x002B__x003C_Name_x003E_k__BackingField id="ref-5">Annoch</Creature_x002B__x003C_Name_x003E_k__BackingField>
+<Creature_x002B__x003C_Damage_x003E_k__BackingField>35</Creature_x002B__x003C_Damage_x003E_k__BackingField>
+<Creature_x002B__x003C_IsDisposed_x003E_k__BackingField>false</Creature_x002B__x003C_IsDisposed_x003E_k__BackingField>
+</a1:Dragon>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
