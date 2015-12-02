@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Lab_3
+﻿namespace Lab_3
 {
+    using System;
+    
     public interface IResurrectable
     {
         int Age
