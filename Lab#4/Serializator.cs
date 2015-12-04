@@ -10,8 +10,7 @@
     {
         private BinaryFormatter binFormatter = new BinaryFormatter();
         private SoapFormatter soapFormatter = new SoapFormatter();
-        private XmlSerializer xmlFormatter = new XmlSerializer(typeof(Dragon));
-        private Dragon dragonFromFile = new Dragon();
+        private XmlSerializer xmlFormatter = new XmlSerializer(typeof(Gargoyle));
         
         public void SaveAsBinary(object objGraph, string filename)
         {
@@ -26,9 +25,9 @@
         {
             using (Stream reader = File.OpenRead(filename))
             {
-                dragonFromFile = (Dragon)binFormatter.Deserialize(reader);
+                Pegasus pegasFromFile = (Pegasus)binFormatter.Deserialize(reader);
                 Console.WriteLine("<-Object was loaded from file");
-                dragonFromFile.ShowFace();
+                pegasFromFile.ShowFace();
             }
         }
 
@@ -45,7 +44,7 @@
         {
             using(Stream reader = File.OpenRead(filename))
             {
-                dragonFromFile = (Dragon)soapFormatter.Deserialize(reader);
+                Dragon dragonFromFile = (Dragon)soapFormatter.Deserialize(reader);
                 Console.WriteLine("<-Object was loaded from file");
                 dragonFromFile.ShowFace();
             }
@@ -64,11 +63,10 @@
         {
             using(Stream reader = File.OpenRead(filename))
             {
-                dragonFromFile = (Dragon)xmlFormatter.Deserialize(reader);
+                Gargoyle gargoyleFromFile = (Gargoyle)xmlFormatter.Deserialize(reader);
                 Console.WriteLine("<-Object was loaded from file");
-                dragonFromFile.ShowFace();
+                gargoyleFromFile.ShowFace();
             }
         }
-
     }
 }

@@ -65,10 +65,5 @@
         {
             Console.WriteLine("I'm a Manticore!");
         }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            Console.WriteLine("{0}: Roaaarr!", this.Name);
-        }
     }
 }

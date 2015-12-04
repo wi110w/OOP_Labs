@@ -1,7 +1,9 @@
 ﻿namespace Lab_4
 {
     using System;
+    using System.Runtime.Serialization;
 
+    [Serializable]
     public class Pegasus : Creature, IFlyable, ICreature<Creature>
     {
         public Pegasus(string name, uint health, uint mana)
@@ -58,12 +60,6 @@
         {
             Console.WriteLine("The pegasus {0} hits the gargoyle {1}!", this.Name, thing.Name);
             thing.Health -= this.Damage;
-        }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            this.Health -= e.Damage;
-            Console.WriteLine("{0}: I will battle for my family!", this.Name);
         }
     }
 }

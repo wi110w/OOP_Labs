@@ -1,7 +1,7 @@
 ﻿namespace Lab_4
 {
     using System;
-
+    
     public class Phoenix : Creature, IResurrectable, IFlyable, IComparable<Phoenix>
     {
         private int age;
@@ -35,19 +35,6 @@
         public int GetOlder()
         {
             return ++this.age;
-        }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            this.Health -= e.Damage;
-            if(this.Age >= 50)
-            {
-                Console.WriteLine("{0}: I'm too old to interrupt...", this.Name);
-            }
-            else
-            {
-                Console.WriteLine("{0}: I have to protect my nest!", this.Name);
-            }
         }
 
         public Phoenix Resurrect()

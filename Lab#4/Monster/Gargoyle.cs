@@ -1,7 +1,9 @@
 ﻿namespace Lab_4
 {
     using System;
-
+    using System.Runtime.Serialization;
+    
+    [Serializable]
     public class Gargoyle : Creature, IMonster, ITransformable, ICreature<Creature>, IFlyable
     {
         public Gargoyle(string name, uint health, uint mana)
@@ -77,12 +79,6 @@
 /                             | | | |                             \
                               ^^^ ^^^
 ");
-        }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            Console.WriteLine("{0}: Oh no! Transformation into stone!", this.Name);
-            this.Transform();
         }
     }
 }

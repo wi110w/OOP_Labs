@@ -3,10 +3,6 @@
     using System;
     using System.Runtime.Serialization;
 
-    public delegate void Reaction(ApocalypsisEventArgs e);
-    public delegate void Informator();
-    public delegate void Speaker();
-
     [Serializable]
     public abstract class Creature: ICreature, IDisposable, IComparable<Creature>
     {
@@ -47,16 +43,6 @@
         public static string GetClass()
         {
             return kind;
-        }
-
-        public virtual void React(ApocalypsisEventArgs e)
-        {
-            Console.WriteLine("{0}: We'll gonna die!", this.Name);
-        }
-
-        public virtual void React()
-        {
-            Console.WriteLine("{0}: We'll gonna die!", this.Name);
         }
 
         public virtual void Print()

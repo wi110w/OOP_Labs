@@ -14,11 +14,6 @@
         int GetOlder();
     }
 
-    public interface ISummonable
-    {
-        void CarryChaos();
-    }
-
     public interface IDragon
     {
         void Fire();

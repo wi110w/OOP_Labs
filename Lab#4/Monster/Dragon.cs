@@ -2,7 +2,7 @@
 {
     using System;
     using System.Runtime.Serialization;
-
+    
     [Serializable]
     public class Dragon : Creature, IMonster, IFlyable, IComparable<Dragon>, IDragon
     {
@@ -121,11 +121,6 @@
         public void Scare()
         {
             Console.WriteLine("I'm a Death, I'm an Evil on the wings of Night!");
-        }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            Console.WriteLine("{0}: Oh, Apocalypsis is coming! Nehehehe >:D", this.Name);
         }
     }
 }

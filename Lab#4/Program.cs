@@ -60,15 +60,15 @@
 
             Console.WriteLine();
             Serializator serializator = new Serializator();
-            Dragon tricky = new Dragon("Tricky", 170, 80, "green dragon-merchant", "Sell it!");
-            serializator.SaveAsBinary(tricky, "trickyInfo.bin");
-            serializator.LoadFromBinary("trickyInfo.bin");
-            Dragon annoch = new Dragon("Annoch", 180, 60, "red dragon-warrior", "BUUURN!");
+            Pegasus taurus = new Pegasus("Taurus", 120, 40);
+            serializator.SaveAsBinary(taurus, "taurusInfo.bin");
+            serializator.LoadFromBinary("taurusInfo.bin");
+            Dragon annoch = new Dragon("Annoch", 150, 60, "red dragon-warrior", "BUUURN!");
             serializator.SaveAsSoap(annoch, "annochInfo.soap");
             serializator.LoadFromSoap("annochInfo.soap");
-            Dragon unkle = new Dragon("Unkle", 130, 90, "grey dragon-wizard", "Sabbrakadabra!");
-            serializator.SaveAsXml(unkle, "unkleInfo.xml");
-            serializator.LoadFromXml("unkleInfo.xml");
+            Gargoyle sophist = new Gargoyle("Sophist", 100, 70);
+            serializator.SaveAsXml(sophist, "sophistInfo.xml");
+            serializator.LoadFromXml("sophistInfo.xml");
             Console.ReadKey();
         }
     }

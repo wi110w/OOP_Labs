@@ -39,11 +39,5 @@
         {
             Console.WriteLine("The unicorn {0} enchanted the {1}. {1} was stunned!", this.Name, thing.Name);
         }
-
-        public override void React(ApocalypsisEventArgs e)
-        {
-            this.Health -= e.Damage;
-            Console.WriteLine("{0}: I have to save my forest!", this.Name);
-        }
     }
 }
