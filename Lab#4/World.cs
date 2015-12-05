@@ -113,7 +113,7 @@
             else
             {
                 Console.WriteLine("{0}: Now I'm nothing...", animals[index].Name);
-                animals[index].Dispose();
+                //animals[index].Dispose();
                 animals[index] = null;
                 GC.Collect();
                 GC.WaitForPendingFinalizers();

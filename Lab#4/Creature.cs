@@ -105,6 +105,7 @@
         ~Creature()
         {
             Dispose(false);
+            Console.WriteLine("{0}: I'm dead :(", this.Name);
         }
     }
 }

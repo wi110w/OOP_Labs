@@ -65,6 +65,7 @@
             {
                 Gargoyle gargoyleFromFile = (Gargoyle)xmlFormatter.Deserialize(reader);
                 Console.WriteLine("<-Object was loaded from file");
+                gargoyleFromFile.Print();
                 gargoyleFromFile.ShowFace();
             }
         }
